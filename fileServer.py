@@ -33,6 +33,9 @@ def uploadFile(name,sock):
                 while bytesToSend != '':
                     bytesToSend = f.read(1024)
                     sock.send(bytesToSend)
+                easygui.msgbox('Sending Complete... Kindly stop the script')
+                sock.close()
+                exit()
     else:
         sock.send('ERR')
     if str(sock.recv(1024))=='CLOSSE THE CONNECTION':
@@ -63,5 +66,4 @@ def Main():
 
 if __name__ == '__main__':
     Main()
-    
     
